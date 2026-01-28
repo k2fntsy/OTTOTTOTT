@@ -143,7 +143,7 @@ function App() {
 
   const searchTmdb = async (query: string) => {
     // Fallback for testing (checking process to avoid browser crash)
-    const apiKey = import.meta.env.VITE_TMDB_API_KEY || (typeof process !== 'undefined' ? process.env.VITE_TMDB_API_KEY : undefined);
+    const apiKey = import.meta.env.VITE_TMDB_API_KEY;
     if (!apiKey) {
       setSearchStatus('Error: API Key missing');
       return;

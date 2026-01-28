@@ -28,7 +28,7 @@ vi.mock('./lib/supabase', () => {
                         }
                         return createBuilder(filteredData);
                     }),
-                    ilike: vi.fn((col: string, pattern: string) => {
+                    ilike: vi.fn((_col: string, pattern: string) => {
                         // pattern is %query%
                         const query = pattern.replace(/%/g, '').toLowerCase();
                         const newData = filteredData.filter(item => item.title.toLowerCase().includes(query));
@@ -48,7 +48,7 @@ describe('Search Functionality', () => {
     beforeEach(() => {
         vi.clearAllMocks();
         // Mock global fetch
-        global.fetch = vi.fn();
+        vi.stubGlobal('fetch', vi.fn());
         vi.stubEnv('VITE_TMDB_API_KEY', 'test-key');
     });
 
