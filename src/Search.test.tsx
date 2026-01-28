@@ -96,7 +96,7 @@ describe('Search Functionality', () => {
             }
         };
 
-        (global.fetch as any)
+        (fetch as any)
             .mockResolvedValueOnce({
                 json: () => Promise.resolve(mockTmdbSearch)
             })
@@ -133,7 +133,7 @@ describe('Search Functionality', () => {
             }
         };
 
-        (global.fetch as any)
+        (fetch as any)
             .mockResolvedValueOnce({
                 json: () => Promise.resolve(mockTmdbSearch)
             })
